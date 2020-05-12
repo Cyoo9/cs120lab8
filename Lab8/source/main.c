@@ -28,16 +28,31 @@ int main(void) {
         unsigned short x;
         unsigned char y;
 	unsigned short MAX = 176;
+	unsigned short gap = MAX/8;
     while (1) {
-            if(ADC >= (MAX/2)) {
-            x = ADC;
-            y = x;
-            PORTB = y;
-            PORTD = (x >> 8);
+	    if(ADC == gap) {
+		    PORTB = 0x01;
 	    }
-	    else { 
-		    PORTB = 0;
-		    PORTD = 0;
+	    else if(ADC == (gap * 2)) {
+		    PORTB = 0x03;
+	    }
+	    else if(ADC == (gap * 3)) {
+		    PORTB = 0x07;
+	    }
+	    else if(ADC == (gap * 4)) {
+		    PORTB = 15;
+	    }
+	    else if(ADC == (gap * 5)) {
+		    PORTB = 31;
+	    }
+	    else if(ADC == (gap * 6)) {
+		    PORTB = 63;
+	    }
+	    else if(ADC == (gap * 7)) {
+		    PORTB = 127;
+	    }
+	    else if(ADC == (gap * 8)) {
+		    PORTB = 255;
 	    }
     }
 
