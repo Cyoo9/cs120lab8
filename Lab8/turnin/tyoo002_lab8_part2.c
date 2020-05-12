@@ -27,23 +27,17 @@ int main(void) {
     /* Insert your solution below */
         unsigned short x;
         unsigned char y;
-	unsigned short MAX = 176;
 	
 	
     while (1) {
-	    if(ADC >= (MAX/2)) {
-           	 x = ADC;
-       	         y = x;
-    	   	 PORTB = y;
-          	 PORTD = x >> 8;
-		}
-	    else  {
-		    PORTB = 0;
-		    PORTD = 0;
-	    }
-    
-    }
+	    x = ADC;
+    	    y = x;
+	    PORTB = y;
+            PORTD = x >> 8;
+        }
      	    
+    }
 
     return 1;
 }
+
