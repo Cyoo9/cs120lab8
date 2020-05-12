@@ -7,6 +7,7 @@
  *      I acknowledge all content contained herein, excluding template or example
  *      code, is my own original work.
  */
+
 #include <avr/io.h>
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
@@ -26,14 +27,20 @@ int main(void) {
     /* Insert your solution below */
         unsigned short x;
         unsigned char y;
-
+	unsigned short MAX = 176;
     while (1) {
-           // PORTA = ~PINA;
+            if(ADC >= (MAX/2)) {
             x = ADC;
             y = x;
             PORTB = y;
             PORTD = (x >> 8);
+	    }
+	    else { 
+		    PORTB = 0;
+		    PORTD = 0;
+	    }
     }
 
     return 1;
 }
+
