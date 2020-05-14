@@ -34,7 +34,6 @@ int main(void) {
     	    y = x;
 	    PORTB = y;
             PORTD = x >> 8;
-        }
      	    
     }
 
